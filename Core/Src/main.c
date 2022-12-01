@@ -276,14 +276,8 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	 //volatile int8_t ret = USBD_Interface_fops_HS.Receive(buffer, &len);
-	 //if (len){
-	//	 (void)CDC_Transmit_HS(buffer, (uint16_t)len);
-	 //}
-
-    //osDelay(250);
 	char data;
-	CDC_Receiveq_HS(&data, portMAX_DELAY);
+	(void)CDC_Receiveq_HS(&data, portMAX_DELAY);
 	(void)CDC_Transmit_HS((uint8_t*)&data, 1);
   }
   /* USER CODE END 5 */
